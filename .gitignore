@@ -5,6 +5,8 @@ composer.lock
 
 # Wordpress
 /public/wp
+/public/content/uploads/*
+!/public/content/uploads/index.html
 
 # OSX rubbish
 .DS_Store

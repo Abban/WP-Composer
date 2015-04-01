@@ -70,6 +70,15 @@ switch(ENVIRONMENT) {
 		define('DB_USER', 'username_here');
 		define('DB_PASSWORD', 'password_here');
 		define('DB_HOST', 'localhost');
+
+		$url = 'http://wp-composer.dev';
+
+		define('WP_SITEURL', "$url/wp");
+		define('WP_HOME', "$url");
+
+		define('WP_CONTENT_DIR', dirname(__FILE__) ."/content");
+		define('WP_CONTENT_URL', "$url/content");
+
 		break;
 }
 
@@ -80,17 +89,6 @@ if ( !defined('DB_CHARSET') )
 /** The Database Collate type. Don't change this if in doubt. */
 if ( !defined('DB_COLLATE') )
 	define('DB_COLLATE', '');
-
-/** Moving the uploads folder. */
-if ( !defined('UPLOADS') )
-	define('UPLOADS', '../uploads');
-
-/** Moving the plugins folder. */
-if ( !defined('WP_PLUGIN_DIR') )
-	define('WP_PLUGIN_DIR', dirname(__FILE__) .'/plugins');
-
-if ( !defined('WP_PLUGIN_URL') )
-	define('WP_PLUGIN_URL', 'http://' .$_SERVER['SERVER_NAME'] .'/plugins');
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -138,6 +136,3 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
-
-/** Add a theme directory. */
-register_theme_directory(dirname(__FILE__) .'/themes');
